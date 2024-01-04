@@ -1,0 +1,4 @@
+/db
+/config
+/authorized-keys
+.env
