@@ -7,6 +7,7 @@ services:
     ports:
       - 3000:3000
     image: semaphoreui/semaphore:latest
+    restart: always
     environment:
       SEMAPHORE_DB_DIALECT: bolt
       SEMAPHORE_ADMIN_PASSWORD: ${SEMAPHORE_ADMIN_PASSWORD}
