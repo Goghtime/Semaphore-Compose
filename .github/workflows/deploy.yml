@@ -1,0 +1,17 @@
+name: Deploy Semaphore
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch deploy to casa-ansible
+        run: |
+          curl -sf -X POST \
+            -H "Authorization: token ${{ secrets.GH_DISPATCH_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/Goghtime/casa-ansible/dispatches \
+            -d '{"event_type": "deploy-semaphore"}'
